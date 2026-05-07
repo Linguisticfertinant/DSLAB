@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int m, n;
+    cin >> m;
+    
+    vector<int> a(m);
+    for(int i = 0; i < m; i++) cin >> a[i];
+
+    cin >> n;
+    vector<int> b(n);
+    for(int i = 0; i < n; i++) cin >> b[i];
+
+    a.insert(a.end(), b.begin(), b.end());
+    sort(a.begin(), a.end());
+
+    int size = a.size();
+
+    if(size % 2 == 0)
+        cout << (a[size/2 - 1] + a[size/2]) / 2.0;
+    else
+        cout << a[size/2];
+
+    return 0;
+}
